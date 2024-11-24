@@ -56,10 +56,8 @@ const image = require('./routes/image');
 app.use('/', index);
 app.use('/image', image);
 
-const PORT = process.env.PORT ;
-app.listen(PORT, () => {
-    console.log(`Server is listening at http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT,() =>{
     console.log(`Server is listening at http://localhost:${PORT}`)
 });
