@@ -1,5 +1,8 @@
 pipeline{
   agent any
+  environment {
+    Web_Addr = 'https://gallery-tbw1.onrender.com/'
+ }
   stages{
     stage('Build'){
       steps{
@@ -14,17 +17,17 @@ pipeline{
   post{
     success{
       slackSend(
-        message: "Build succeeded"
+        message: "Build succeeded."
       )
     }
     failure{
       slackSend(
-        message: "Build failed"
+        message: "Build failed."
       )
     }
     always{
       slackSend(
-        message: "Build complete"
+        message: "Build complete. Build Id: ${env.BUILD_ID}. Website is located at: ${env.Web_Addr}"
       )
     }
   }
