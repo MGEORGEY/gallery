@@ -4,6 +4,12 @@ pipeline{
     Web_Addr = 'https://gallery-tbw1.onrender.com/'
  }
   stages{
+     stage('Clone repository') {
+            steps {
+                echo 'Cloning repository'
+                git 'https://github.com/MGEORGEY/gallery.git'
+            }
+        }
     stage('Build'){
       steps{
         nodejs('Node'){
